@@ -22,8 +22,9 @@ function handler(req, res) {
 //io.configure( function() {
 //	io.set('close timeout', 60*60*24); // 24h time out
 //});
-var io = require('socket.io')(app);
-var socket = io({ 'close timeout': 60*60*24 });
+io.on('connection', function () {
+io.set("close timout", 60*60*24);
+});
 
 function SessionController (user) {
 	// session controller class for storing redis connections
